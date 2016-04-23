@@ -6,7 +6,9 @@ import ListItem from 'material-ui/lib/lists/list-item';
 import Divider from 'material-ui/lib/divider';
 import TextField from 'material-ui/lib/text-field';
 import RaisedButton from 'material-ui/lib/raised-button';
-import FlatButton from 'material-ui/lib/flat-button'
+import FlatButton from 'material-ui/lib/flat-button';
+import Paper from 'material-ui/lib/paper';
+
 
 
 function NewIdea() {
@@ -27,7 +29,8 @@ function InvestButton(props) {
 function IdeasList(props) {
   var ideas = props.ideas.map(function(idea, i) {
     return (
-          <Row key={i} middle="xs">
+      <Paper zDepth={1} style={{marginBottom: '20px'}}>
+          <Row key={i} middle="xs"  style={{background:'transparent'}} >
             <Col xs={2}>
               <InvestButton />
             </Col>
@@ -36,18 +39,19 @@ function IdeasList(props) {
             primaryText={idea.text}
             secondaryText={
               <div>
-              <span>{idea.date}</span>
-              <span> | {idea.username}</span>
+                <span>{idea.date}</span>
+                <span> | {idea.username}</span>
+                <span style={{float:'right', color:'#6bba6d'}}>Current: {idea.amountRaised}</span>
               </div>
             }
             />
-            <Divider />
             </Col>
           </Row>
+      </Paper>
     )
   });
   return (
-    <List>
+    <List style={{backgroundColor: 'transparent'}}>
       { ideas }
     </List>
   )
@@ -55,12 +59,12 @@ function IdeasList(props) {
 
 function IdeasContainer(props) {
   return (
-    <Row>
-      <Col xs={12} smOffset={3} sm={6}>
-        <IdeasList ideas={props.ideas}></IdeasList>
-        <NewIdea></NewIdea>
-      </Col>
-    </Row>
+      <Row>
+          <Col xs={12} smOffset={3} sm={6}>
+              <IdeasList ideas={props.ideas}/>
+              <NewIdea></NewIdea>
+          </Col>
+      </Row>
   )
 }
 
@@ -71,17 +75,20 @@ var Main = React.createClass({
         {
           text: "Pizza delivery by dogs",
           username: "willthefirst",
-          date: "2/1/16"
+          date: "2/1/16",
+          amountRaised: '$2.70'
         },
         {
           text: "Different types of money",
           username: "brendanternus",
-          date: "3/1/16"
+          date: "3/1/16",
+          amountRaised: '$6.10'
         },
         {
           text: "Bamboo swords",
           username: "rolliewilliams",
-          date: "2/2/16"
+          date: "2/2/16",
+          amountRaised: '$9.70'
         }
       ]
     }
