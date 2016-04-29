@@ -15,7 +15,7 @@
     "react": "^15.0.1",
     "react-dom": "^15.0.1",
     "react-flexbox-grid": "^0.9.6",
-    "redux": "^3.5.1"
+    "redux": "^3.5.2"
   },
   "babel": {
     "presets": [
