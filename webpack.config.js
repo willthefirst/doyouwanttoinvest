@@ -35,5 +35,6 @@ module.exports = {
       template: path.resolve(__dirname, 'app/index.html')
     }),
     new webpack.HotModuleReplacementPlugin()
-  ]
+  ],
+  devtool: 'source-map'
 }

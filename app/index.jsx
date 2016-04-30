@@ -1,7 +1,14 @@
 var React = require('react');
 var ReactDOM = require('react-dom');
-var Main = require('./Main');
+import InvestApp from './components/InvestApp';
+import { Provider } from 'react-redux'
+import { createStore } from 'redux';
+import investApp from './reducers';
 
-console.log(Main)
+var store = createStore(investApp);
 
-ReactDOM.render(<Main />, document.getElementById('app'));
+ReactDOM.render(
+  <Provider store={store}>
+    <InvestApp />
+  </Provider>
+  , document.getElementById('app'));

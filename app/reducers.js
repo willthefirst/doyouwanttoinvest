@@ -11,32 +11,35 @@ const initialState = {
       text: "Pizza delivery by dogs",
       username: "willthefirst",
       date: "2/1/16",
-      amountRaised: 2
+      amountRaised: 2,
+      id: idCounter++
     },
     {
       text: "Different types of money",
       username: "brendanternus",
       date: "3/1/16",
-      amountRaised: 6
+      amountRaised: 6,
+      id: idCounter++,
     },
     {
       text: "Bamboo swords",
       username: "rolliewilliams",
       date: "2/2/16",
-      amountRaised: 9
+      amountRaised: 9,
+      id: idCounter++
     }
   ]
 }
 
-function ideas(ideas = [], action) {
+function ideas(ideas = initialState.ideas, action) {
   switch (action.type) {
     case 'ADD_NEW_IDEA':
       return ideas.concat({
           text: action.text,
           username: "new_user",
           date: "new_date",
-          amountRaised: 0
-          id: idCounter++;
+          amountRaised: 0,
+          id: idCounter++
       })
     case 'INVEST':
       return ideas.map(function(idea) {
@@ -50,16 +53,19 @@ function ideas(ideas = [], action) {
   }
 }
 
-function newIdea(newIdea, action) {
+function newIdea(newIdea = initialState.newIdea, action) {
   switch (action.type) {
     case 'UPDATE_NEW_IDEA':
+      console.log(action.text)
       return action.text
     default:
       return newIdea
   }
 }
 
-export const investApp = combineReducers({
+const investApp = combineReducers({
   newIdea,
   ideas
-})
+});
+
+export default investApp;

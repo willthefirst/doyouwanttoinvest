@@ -15,9 +15,7 @@ export function updateNewIdea(text) {
 export function addNewIdea(text) {
   return {
     type: ADD_NEW_IDEA,
-    idea: {
-      text: text
-    }
+    text: text
   }
 }
 
