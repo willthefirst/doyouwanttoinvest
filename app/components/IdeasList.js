@@ -7,7 +7,7 @@ function IdeasList(props) {
     <List style={{backgroundColor: 'transparent'}}>
       {
         props.ideas.map(function(idea, i) {
-          return <Idea key={i} data={idea} onInvest={props.onInvest}/>
+          return <Idea key={i} data={idea} onInvest={() => props.onInvest(idea.id)}/>
         })
       }
     </List>

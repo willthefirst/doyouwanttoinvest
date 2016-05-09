@@ -12,6 +12,7 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
   return {
     onInvest: function(id) {
+      console.log('here',id, 'asd')
       dispatch(invest(id))
     }
   }
