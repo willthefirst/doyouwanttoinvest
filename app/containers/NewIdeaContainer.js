@@ -13,9 +13,10 @@ const mapDispatchToProps = (dispatch) => {
   return {
     handleIdeaSubmit: function(text) {
       dispatch(addNewIdea(text));
+      dispatch(updateNewIdea(''));
     },
     handleIdeaChange: function(text) {
-      dispatch(updateNewIdea(text))
+      dispatch(updateNewIdea(text));
     }
   }
 }

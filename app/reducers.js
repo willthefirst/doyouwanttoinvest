@@ -35,12 +35,12 @@ function ideas(ideas = initialState.ideas, action) {
   switch (action.type) {
     case 'ADD_NEW_IDEA':
       return ideas.concat({
-          text: action.text,
-          username: "new_user",
-          date: "new_date",
-          amountRaised: 0,
-          id: idCounter++
-      })
+            text: action.text,
+            username: "new_user",
+            date: "new_date",
+            amountRaised: 0,
+            id: idCounter++
+        })
     case 'INVEST':
       return ideas.map(function(idea) {
         if (idea.id === action.id) {
@@ -56,7 +56,6 @@ function ideas(ideas = initialState.ideas, action) {
 function newIdea(newIdea = initialState.newIdea, action) {
   switch (action.type) {
     case 'UPDATE_NEW_IDEA':
-      console.log(action.text)
       return action.text
     default:
       return newIdea

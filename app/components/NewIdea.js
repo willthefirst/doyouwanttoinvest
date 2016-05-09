@@ -4,10 +4,18 @@ import RaisedButton from 'material-ui/lib/raised-button';
 import TextField from 'material-ui/lib/text-field';
 
 function NewIdea({value, handleIdeaChange, handleIdeaSubmit}) {
+  var input;
   return (
     <Row center="xs" style={{marginTop: 20}}>
-      <TextField type="text" placeholder="What's your idea?" value={value} onChange={(e) => {handleIdeaChange(e.target.value)}}/>
-      <RaisedButton label="Submit" primary={true} onClick={() => {handleIdeaSubmit(value)}}/>
+      <TextField type="text" placeholder="What's your idea?"
+        value={value}
+        onChange={(e) => {handleIdeaChange(e.target.value)}}
+      />
+      <RaisedButton label="Submit" primary={true}
+      onClick={() => {
+        handleIdeaSubmit(value);
+      }
+      }/>
     </Row>
   )
 }

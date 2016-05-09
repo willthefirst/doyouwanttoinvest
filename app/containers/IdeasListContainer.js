@@ -1,6 +1,7 @@
 import React, { PropTypes } from 'react';
 import { connect } from 'react-redux';
 import IdeasList from '../components/IdeasList';
+import { invest } from '../actions';
 
 const mapStateToProps = (state) => {
   return {
